@@ -23,7 +23,6 @@ function Index(){};
 
 //dependencies
 var TopMenu        = require(path.join(DOCUMENT_ROOT, '/include/theme/top_menu'));
-var Media          = require(path.join(DOCUMENT_ROOT, '/include/service/entities/media_service'));
 var ArticleService = require(path.join(DOCUMENT_ROOT, '/include/service/entities/article_service')).ArticleService;
 
 //inheritance
