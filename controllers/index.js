@@ -39,6 +39,7 @@ module.exports = function IndexModule(pb) {
 
   Index.prototype.onArticle = function(cb) {
       var self = this;
+      var dao = new pb.DAO();
 
       try {
           pb.DAO.getObjectId(this.pathVars.customUrl);
@@ -52,7 +53,6 @@ module.exports = function IndexModule(pb) {
           });
       }
       catch(e) {
-          var dao = new pb.DAO();
           dao.loadByValues({url: self.pathVars.customUrl}, 'article', function(err, article) {
               if (util.isError(err) || article == null) {
                   self.reqHandler.serve404();
@@ -68,6 +68,7 @@ module.exports = function IndexModule(pb) {
 
   Index.prototype.onPage = function(cb) {
       var self = this;
+      var dao = new pb.DAO();
 
       try {
           pb.DAO.getObjectId(this.pathVars.customUrl);
@@ -97,6 +98,7 @@ module.exports = function IndexModule(pb) {
 
   Index.prototype.onSection = function(cb) {
       var self = this;
+      var dao = new pb.DAO();
 
       try {
           pb.DAO.getObjectId(this.pathVars.customUrl);
@@ -110,7 +112,6 @@ module.exports = function IndexModule(pb) {
           });
       }
       catch(e) {
-          var dao = new pb.DAO();
           dao.loadByValues({url: self.pathVars.customUrl}, 'section', function(err, section) {
               if (util.isError(err) || section == null) {
                   self.reqHandler.serve404();
@@ -126,6 +127,7 @@ module.exports = function IndexModule(pb) {
 
   Index.prototype.onTopic = function(cb) {
       var self = this;
+      var dao = new pb.DAO();
 
       try {
           pb.DAO.getObjectId(this.pathVars.customUrl);
@@ -139,7 +141,6 @@ module.exports = function IndexModule(pb) {
           });
       }
       catch(e) {
-          var dao = new pb.DAO();
           dao.loadByValues({name: self.pathVars.customUrl}, 'topic', function(err, topic) {
               if (util.isError(err) || topic == null) {
 
